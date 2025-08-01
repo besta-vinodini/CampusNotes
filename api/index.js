@@ -37,7 +37,7 @@ const app = express();
 
 // Define allowed origins
 const allowedOrigins = [
- 
+  "http://localhost:5173",
   "http://localhost:3000", // Local frontend
   "https://campusnotes-client.onrender.com", // Your deployed frontend
 ];
@@ -53,17 +53,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",                      
-      "https://campusnotes-client.onrender.com"  
-    ],
-    credentials: true,
-  })
-);
-
 
 // --- Middlewares ---
 app.use(express.json());
