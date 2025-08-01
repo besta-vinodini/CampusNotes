@@ -47,7 +47,7 @@ const BrowseNotes = () => {
   const fetchNotes = async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get("http://localhost:3000/api/notes", {
+      const res = await axios.get("https://campusnotes-backend.onrender.com/api/notes", {
         params: {
           search,
           subject: filters.subject,
@@ -118,7 +118,7 @@ const BrowseNotes = () => {
 
   const likeNote = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/api/notes/${id}/like`, {}, {
+      await axios.put(`https://campusnotes-backend.onrender.com/api/notes/${id}/like`, {}, {
         headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }
       });
       fetchNotes();
@@ -155,11 +155,11 @@ const BrowseNotes = () => {
   const addComment = async () => {
     if (!commentText.trim()) return;
     try {
-      await axios.post(`http://localhost:3000/api/notes/${selectedNote._id}/comment`,
+      await axios.post(`https://campusnotes-backend.onrender.com/api/notes/${selectedNote._id}/comment`,
         { text: commentText },
         { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
       );
-      const updated = await axios.get(`http://localhost:3000/api/notes?search=${selectedNote._id}`);
+      const updated = await axios.get(`https://campusnotes-backend.onrender.com/api/notes?search=${selectedNote._id}`);
       setSelectedNote(updated.data.notes[0]);
       setCommentText("");
       fetchNotes();
