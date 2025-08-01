@@ -271,10 +271,13 @@ const CreateUploading = () => {
         : `${import.meta.env.VITE_API_URL}/api/uploading/create`;
 
       // Send the request
+      const token = localStorage.getItem("token");
       const res = await fetch(endpoint, {
         method: "POST",
         body: form,
-        credentials: "include",
+        headers:{
+          Authorization:`Bearer ${token}`,
+        },
         // Don't manually set Content-Type here
       });
 
