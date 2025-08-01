@@ -39,17 +39,16 @@ const app = express();
 const allowedOrigins = [
  
   "http://localhost:3000", // Local frontend
-  //"https://campusnotes-amh9.onrender.com", // Your deployed frontend
+  "https://campusnotes-client.onrender.com", // Your deployed frontend
 ];
-
-// --- CORS HEADERS (manual) --
-
-// --- CORS Middleware ---
 
 app.use(
   cors({
-    origin: "http://localhost:5173", 
-    credentials: true,  //allow cookies to be sent
+    origin: [
+      "http://localhost:5173",                      
+      "https://campusnotes-client.onrender.com"  
+    ],
+    credentials: true,
   })
 );
 
