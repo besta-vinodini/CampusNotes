@@ -40,7 +40,8 @@ const SignIn = () => {
       dispatch(signInSuccess({
         ...data.user,
         token : data.token
-      })); // Make sure backend sends { user: ... }
+      }));// Make sure backend sends { user: ... }
+      localStorage.setItem("access_token", data.token);
     } catch (error) {
       console.error("Sign in error:", error);
       const errorMessage = error.response?.data?.message || "Failed to sign in";
