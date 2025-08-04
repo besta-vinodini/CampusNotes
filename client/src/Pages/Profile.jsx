@@ -86,7 +86,7 @@ const Profile = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${currentUser.token}`,
+            Authorization:`Bearer ${import.meta.env.JWT_SECRET}`,
           },
           credentials: "include",
           body: JSON.stringify(formData),
