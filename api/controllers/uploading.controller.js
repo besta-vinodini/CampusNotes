@@ -60,8 +60,8 @@ export const notesUploading = async (req, res, next) => {
   // Set CORS headers for this specific route to ensure they're sent even on error
  
   const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:3000", // backend
+    "https://campusnotes-client.onrender.com",
+    "https://campusnotes-backend-ghgi.onrender.com", // backend
   ];
   
   res.header("Access-Control-Allow-Origin", allowedOrigins.includes(req.headers.origin) ? req.headers.origin : "");
