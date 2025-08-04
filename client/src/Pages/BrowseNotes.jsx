@@ -119,7 +119,7 @@ const BrowseNotes = () => {
   const likeNote = async (id) => {
     try {
       await axios.put(`https://campusnotes-backend.onrender.com/api/notes/${id}/like`, {}, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` }
+        headers:{ Authorization:`Bearer ${import.meta.env.JWT_SECRET}`, }
       });
       fetchNotes();
     } catch (err) {
