@@ -117,9 +117,10 @@ const BrowseNotes = () => {
   };
 
   const likeNote = async (id) => {
+    const token = localStorage.getItem("token");
     try {
       await axios.put(`https://campusnotes-backend.onrender.com/api/notes/${id}/like`, {}, {
-        headers:{ Authorization:`Bearer ${import.meta.env.JWT_SECRET}`, }
+        headers:{ Authorization:`Bearer ${token}`, }
       });
       fetchNotes();
     } catch (err) {
