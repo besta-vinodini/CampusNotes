@@ -276,7 +276,7 @@ const CreateUploading = () => {
         method: "POST",
         body: form,
         headers:{
-          Authorization:`Bearer ${import.meta.env.JWT_SECRET}`,
+          Authorization:`Bearer ${token}`,
         },
         // Don't manually set Content-Type here
       });
