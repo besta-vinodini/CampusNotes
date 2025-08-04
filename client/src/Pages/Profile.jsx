@@ -79,14 +79,14 @@ const Profile = () => {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-
+      const token = localStorage.getItem("token");
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/api/user/update/${currentUser._id}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization:`Bearer ${import.meta.env.JWT_SECRET}`,
+            Authorization:`Bearer ${token}`,
           },
           credentials: "include",
           body: JSON.stringify(formData),
@@ -196,7 +196,7 @@ const Profile = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${currentUser.token}`,
+            Authorization: `Bearer ${token}`,
           },
           credentials: "include", 
         }
